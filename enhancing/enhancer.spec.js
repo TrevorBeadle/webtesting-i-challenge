@@ -58,6 +58,13 @@ describe("enhancer tests", () => {
     const plusTen = {...item, enhancement: 10}
     
     expect(get(item)).toEqual(item);
+
+    expect(get(success(item))).toEqual({
+      name: '[+1] sword',
+      durability: 100,
+      enhancement: 1,
+    })
+    
     expect(get(plusOne)).toEqual({...plusOne, name: '[+1] sword'})
     expect(get(plusTen)).toEqual({...plusTen, name: '[+10] sword'})
   })
