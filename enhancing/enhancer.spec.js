@@ -52,4 +52,13 @@ describe("enhancer tests", () => {
       enhancement: newItem3.enhancement - 1,
     })
   });
+
+  it('updates name based on enhancement', () => {
+    const plusOne = {...item, enhancement: 1}
+    const plusTen = {...item, enhancement: 10}
+    
+    expect(get(item)).toEqual(item);
+    expect(get(plusOne)).toEqual({...plusOne, name: '[+1] sword'})
+    expect(get(plusTen)).toEqual({...plusTen, name: '[+10] sword'})
+  })
 });
